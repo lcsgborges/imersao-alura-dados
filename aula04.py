@@ -92,6 +92,8 @@ with colgraf2:
     else:
         st.warning('Nenhum dado para exibir no gráfico de distribuição.')
 
+st.markdown('---')
+
 colgraf3, colgraf4 = st.columns(2)
 
 with colgraf3:
@@ -114,8 +116,6 @@ def iso2_to_iso3(code):
 # Criar nova coluna com código ISO-3
 df['residencia_iso3'] = df['residencia'].apply(iso2_to_iso3)
 
-
-
 with colgraf4:
     if not df_filtrado.empty:
         df_ds = df[df['cargo'] == 'Data Scientist']
@@ -125,7 +125,9 @@ with colgraf4:
         st.plotly_chart(grafico_paises, use_container_width=True)
     else:
         st.warning('Nenhum dado para exibir no gráfico de países.')
-        
+    
+st.markdown('---')    
+    
 # --- Tabela dos dados utilizados ---
 st.subheader('Dados detalhados')
 st.dataframe(df_filtrado)
