@@ -67,12 +67,12 @@ df_limpo = df.dropna()
 
 # Podemos configurar a nossa figura usando o matplotlib.pyplot:
 
-# plt.figure(figsize=(8,5))
-# sns.barplot(data=df_limpo, x='senioridade', y='usd')
-# plt.title('Salário médio por senioridade')
-# plt.xlabel('Senioridade')
-# plt.ylabel('Salário médio anual (USD)')
-# plt.show()
+plt.figure(figsize=(8,5))
+sns.barplot(data=df_limpo, x='senioridade', y='usd')
+plt.title('Salário médio por senioridade')
+plt.xlabel('Senioridade')
+plt.ylabel('Salário médio anual (USD)')
+plt.show()
 
 # Podemos ordenar isso agora:
 ordem = df_limpo.groupby('senioridade')['usd'].mean().sort_values(ascending=False).index
@@ -81,38 +81,38 @@ print(ordem)
 
 # Ordenando agora:
 
-# sns.barplot(data=df_limpo, x='senioridade', y='usd', order=ordem)
-# plt.title('Salário médio por senioridade')
-# plt.xlabel('Senioridade')
-# plt.ylabel('Salário médio anual (USD)')
-# plt.show()
+sns.barplot(data=df_limpo, x='senioridade', y='usd', order=ordem)
+plt.title('Salário médio por senioridade')
+plt.xlabel('Senioridade')
+plt.ylabel('Salário médio anual (USD)')
+plt.show()
 
 # Plotando um gráfico de histograma:
 
-# plt.figure(figsize=(10,5))
-# sns.histplot(data=df_limpo['usd'], bins=50, kde=True)
-# plt.title('Distribuição dos salários anuais em USD')
-# plt.xlabel('Salário médio anual (USD)')
-# plt.ylabel('Frequência')
-# plt.show()
+plt.figure(figsize=(10,5))
+sns.histplot(data=df_limpo['usd'], bins=50, kde=True)
+plt.title('Distribuição dos salários anuais em USD')
+plt.xlabel('Salário médio anual (USD)')
+plt.ylabel('Frequência')
+plt.show()
 
 # Plotando um gráfico de caixa para entender os dados de uma maneira mais técnica:
 
-# plt.figure(figsize=(8,5))
-# sns.boxplot(data=df_limpo['usd'])
-# plt.title('Boxplot salário')
-# plt.xlabel('Salário anual em USD')
-# plt.show()
+plt.figure(figsize=(8,5))
+sns.boxplot(data=df_limpo['usd'])
+plt.title('Boxplot salário')
+plt.xlabel('Salário anual em USD')
+plt.show()
 
 # Distribuindo salário por senioridade:
 
-# order_senioridade = ['Junior', 'Pleno', 'Senior', 'Executivo']
-# plt.figure(figsize=(10,5))
-# sns.boxplot(data=df_limpo, x='senioridade', y='usd', order=order_senioridade)
-# plt.title('Distribuição salarial por senioridade - Boxplot')
-# plt.xlabel('Senioridade')
-# plt.ylabel('Salário anual USD')
-# plt.show()
+order_senioridade = ['Junior', 'Pleno', 'Senior', 'Executivo']
+plt.figure(figsize=(10,5))
+sns.boxplot(data=df_limpo, x='senioridade', y='usd', order=order_senioridade)
+plt.title('Distribuição salarial por senioridade - Boxplot')
+plt.xlabel('Senioridade')
+plt.ylabel('Salário anual USD')
+plt.show()
 
 # Usando plotly para gerar gráficos dinâmicos:
 
